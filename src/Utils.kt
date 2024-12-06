@@ -6,7 +6,12 @@ import kotlin.io.path.readLines
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = Path("src/$name.txt").readLines()
+fun readInput(day: String) = Path("src/$day/input.txt").readLines()
+
+/**
+ * Reads lines from the given input txt file.
+ */
+fun readTestInput(day: String) = Path("src/$day/test.txt").readLines()
 
 /**
  * Converts string to md5 hash.
@@ -14,6 +19,13 @@ fun readInput(name: String) = Path("src/$name.txt").readLines()
 fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
     .toString(16)
     .padStart(32, '0')
+
+/**
+ * Remove spaces in string
+ */
+fun String.removeSpaces(): String {
+    return this.replace("\\s".toRegex(), "")
+}
 
 /**
  * The cleaner shorthand for printing output.
