@@ -1,5 +1,6 @@
 package year2024.day04
 
+import getPath
 import println
 import readInput
 import readTestInput
@@ -26,11 +27,11 @@ fun main() {
 
         fun isValidPattern(r: Int, c: Int): Boolean =
             (input[r - 1][c - 1] == 'M' && input[r + 1][c + 1] == 'S' &&
-            ((input[r - 1][c + 1] == 'M' && input[r + 1][c - 1] == 'S') ||
-                (input[r - 1][c + 1] == 'S' && input[r + 1][c - 1] == 'M'))) ||
-            (input[r - 1][c - 1] == 'S' && input[r + 1][c + 1] == 'M' &&
                 ((input[r - 1][c + 1] == 'M' && input[r + 1][c - 1] == 'S') ||
-                    (input[r - 1][c + 1] == 'S' && input[r + 1][c - 1] == 'M')))
+                    (input[r - 1][c + 1] == 'S' && input[r + 1][c - 1] == 'M'))) ||
+                (input[r - 1][c - 1] == 'S' && input[r + 1][c + 1] == 'M' &&
+                    ((input[r - 1][c + 1] == 'M' && input[r + 1][c - 1] == 'S') ||
+                        (input[r - 1][c + 1] == 'S' && input[r + 1][c - 1] == 'M')))
 
         input.forEachIndexed { r, s ->
             if (r == 0 || r == input.size - 1) return@forEachIndexed
@@ -43,11 +44,12 @@ fun main() {
         return count
     }
 
-    val testInput = readTestInput("day04")
+    val path = getPath {}
+    val testInput = readTestInput(path)
     check(part1(testInput) == 18)
     check(part2(testInput) == 9)
 
-    val input = readInput("day04")
+    val input = readInput(path)
     part1(input).println()
     part2(input).println()
 }

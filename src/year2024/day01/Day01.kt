@@ -1,5 +1,6 @@
 package year2024.day01
 
+import getPath
 import println
 import readInput
 import readTestInput
@@ -21,11 +22,12 @@ fun main() {
         return score
     }
 
-    val testInput = readTestInput("day01")
+    val path = getPath {}
+    val testInput = readTestInput(path)
     check(part1(testInput) == 11)
     check(part2(testInput) == 31)
 
-    val input = readInput("day01")
+    val input = readInput(path)
     part1(input).println()
     part2(input).println()
 }

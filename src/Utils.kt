@@ -14,6 +14,11 @@ fun readInput(day: String) = Path("src/$day/input.txt").readLines()
 fun readTestInput(day: String) = Path("src/$day/test.txt").readLines()
 
 /**
+ * Returns the path of the current file (hacky way).
+ */
+inline fun getPath(noinline block: () -> Unit): String = block.javaClass.packageName.replace(".", "/")
+
+/**
  * Converts string to md5 hash.
  */
 fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))

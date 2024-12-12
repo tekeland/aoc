@@ -1,5 +1,6 @@
 package year2024.day03
 
+import getPath
 import println
 import readInput
 import readTestInput
@@ -15,11 +16,12 @@ fun main() {
             .map { it.split("don't()")[0].compute() }
             .reduce { acc, line -> acc + line }
 
-    val testInput = readTestInput("day03")
+    val path = getPath {}
+    val testInput = readTestInput(path)
     check(part1(testInput) == 161)
     check(part2(testInput) == 48)
 
-    val input = readInput("day03")
+    val input = readInput(path)
     part1(input).println()
     part2(input).println()
 }

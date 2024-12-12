@@ -1,5 +1,6 @@
 package year2024.day02
 
+import getPath
 import println
 import readInput
 import readTestInput
@@ -34,11 +35,12 @@ fun main() {
         return safeReportsCount
     }
 
-    val testInput = readTestInput("day02")
+    val path = getPath {}
+    val testInput = readTestInput(path)
     check(part1(testInput) == 2)
     check(part2(testInput) == 4)
 
-    val input = readInput("day02")
+    val input = readInput(path)
     part1(input).println()
     part2(input).println()
 }
