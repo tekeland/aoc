@@ -5,6 +5,8 @@ import println
 import readInput
 import readTestInput
 import removeSpaces
+import rotateMatrix45Degrees
+import rotateMatrix90Degrees
 
 fun main() {
     fun part1(input: List<String>): Int {
@@ -62,33 +64,6 @@ fun count(input: List<String>): Int {
         count += string.countXmas() + string.reversed().countXmas()
     }
     return count
-}
-
-fun rotateMatrix90Degrees(matrix: List<String>): List<String> {
-    val n = matrix.size
-    val rotatedMatrix = Array(n) { CharArray(n) }
-
-    for (i in matrix.indices) {
-        for (j in matrix[i].indices) {
-            rotatedMatrix[j][n - 1 - i] = matrix[i][j]
-        }
-    }
-
-    return rotatedMatrix.map { it.joinToString("") }
-}
-
-fun rotateMatrix45Degrees(matrix: List<String>): List<String> {
-    val n = matrix.size
-    val newSize = 2 * n - 1
-    val rotatedMatrix = Array(newSize) { CharArray(newSize) { ' ' } }
-
-    for (i in matrix.indices) {
-        for (j in matrix[i].indices) {
-            rotatedMatrix[i + j][n - 1 + i - j] = matrix[i][j]
-        }
-    }
-
-    return rotatedMatrix.map { it.joinToString("") }
 }
 
 fun String.countXmas(): Int {
