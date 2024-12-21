@@ -56,7 +56,7 @@ fun main() {
     part2(input).println()
 }
 
-fun count(input: List<String>): Int {
+private fun count(input: List<String>): Int {
     var count = 0
     input.forEach { row ->
         val string = row.removeSpaces()
@@ -66,6 +66,6 @@ fun count(input: List<String>): Int {
     return count
 }
 
-fun String.countXmas(): Int {
+private fun String.countXmas(): Int {
     return this.split("XMAS").size - 1
 }

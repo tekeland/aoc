@@ -44,14 +44,14 @@ fun main() {
     part2(input).println()
 }
 
-fun parseInput(input: List<String>): Pair<List<String>, List<String>> {
+private fun parseInput(input: List<String>): Pair<List<String>, List<String>> {
     val rules = input.takeWhile { it.isNotEmpty() }
     val updates = input.takeLastWhile { it.isNotEmpty() }
 
     return rules to updates
 }
 
-fun isValidUpdate(rules: List<String>, update: String) =
+private fun isValidUpdate(rules: List<String>, update: String) =
     rules.all { rule ->
         val (first, second) = rule.split('|')
         if (update.contains(first) && update.contains(second)) {
@@ -59,12 +59,12 @@ fun isValidUpdate(rules: List<String>, update: String) =
         } else true
     }
 
-fun middleValue(update: String): Int {
+private fun middleValue(update: String): Int {
     val intUpdate = update.split(',').map { it.toInt() }
     return intUpdate[intUpdate.size / 2]
 }
 
-fun fixUpdate(update: String, rules: List<String>): String {
+private fun fixUpdate(update: String, rules: List<String>): String {
     var fixedUpdate = update
     val updateList = fixedUpdate.split(',').toMutableList()
 
