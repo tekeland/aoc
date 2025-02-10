@@ -1,10 +1,10 @@
 package year2024.day06
 
+import executeAndMeasureTime
 import getPath
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import println
 import readInput
 import readTestInput
 import java.util.concurrent.atomic.AtomicInteger
@@ -90,8 +90,8 @@ fun main() {
     check(part2(testInput) == 6)
 
     val input = readInput(path)
-    part1(input).println()
-    part2(input).println()
+    executeAndMeasureTime({ part1(input).toString() })
+    executeAndMeasureTime({ part2(input).toString() })
 }
 
 private fun getInitialSetup(input: List<String>): Pair<Location, MutableList<Point>> {

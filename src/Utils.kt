@@ -2,6 +2,7 @@ import java.math.BigInteger
 import java.security.MessageDigest
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
+import kotlin.system.measureNanoTime
 
 /**
  * Reads lines from the given input txt file.
@@ -36,6 +37,17 @@ fun String.removeSpaces(): String {
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+/**
+ * Execute block and measure time.
+ */
+inline fun executeAndMeasureTime(block: () -> String, part: Int = 1) =
+    measureNanoTime {
+        val result = block()
+        println("part $part: $result ")
+    }.also {
+        println("(${it / 1_000_000} ms)")
+    }
 
 /**
  * Rotate matrix 90 degrees.
